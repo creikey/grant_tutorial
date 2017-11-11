@@ -11,6 +11,9 @@ func _ready():
 	# Initialization here
 	pass
 
+func _draw():
+	draw_circle( Vector2(), ball_size, ball_color )
+
 func set_ball_color( in_color ):
 	ball_color = in_color
 
