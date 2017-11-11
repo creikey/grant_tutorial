@@ -20,6 +20,9 @@ onready var left_paddle_size = left_paddle.get_paddle_size()
 
 onready var pos = get_pos()
 
+func get_ball_speed():
+	return abs(ball_speed)
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -49,3 +52,4 @@ func _fixed_process( delta ):
 			move_to( OS.get_window_size()/2)
 		
 	move( ball_speed )
+
