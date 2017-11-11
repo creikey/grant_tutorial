@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://title_bounce.gd" type="Script" id=1]
+[ext_resource path="res://default.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://draw_play_button.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+
+default_font = ExtResource( 2 )
+
+[node name="title_screen" type="Node2D"]
+
+[node name="pong_button" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 250, 250 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+initial_speed = 2.0
+
+[node name="pong_button_draw" type="Control" parent="pong_button"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = SubResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 100.0
+script/script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+draw_font = "default.fnt"
+to_draw = "Pong 2"
+font_color = Color( 1, 1, 1, 1 )
+outline_color = Color( 0.207031, 0.207031, 0.207031, 1 )
+next_scene_path = "res://main.tscn"
+
+
