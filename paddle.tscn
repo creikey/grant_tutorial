@@ -22,6 +22,7 @@ paddle_color = Color( 1, 0, 0, 1 )
 paddle_size = Vector2( 10, 100 )
 paddle_speed = 5.0
 paddle_computer = false
+ball_path = ""
 paddle_side = 1
 control_type = 1
 
