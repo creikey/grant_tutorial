@@ -33,6 +33,7 @@ func _on_ball_out_of_bounds( side ):
 
 [node name="left_paddle" parent="." instance=ExtResource( 1 )]
 
+ball_path = "../ball"
 paddle_side = null
 control_type = 0
 
@@ -40,13 +41,15 @@ control_type = 0
 
 ball_color = Color( 0, 0, 1, 1 )
 ball_size = 20.0
-ball_speed = Vector2( 5, 2.5 )
+ball_speed = Vector2( 10, 6 )
 right_paddle_name = "../right_paddle"
 left_paddle_name = "../left_paddle"
 
 [node name="right_paddle" parent="." instance=ExtResource( 1 )]
 
 paddle_color = Color( 0, 1, 0, 1 )
+paddle_computer = true
+ball_path = "../ball"
 
 [node name="left_score" type="Label" parent="."]
 
