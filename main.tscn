@@ -1,7 +1,33 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://left_score.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Label
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+onready var ball = get_node( \"../ball\" )
+var side_score = 0
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	update_text()
+
+func update_text():
+	set_text( \"right score: %d\" % [side_score] )
+
+func _on_ball_out_of_bounds( side ):
+	if( side == true ):
+		side_score += 1
+		update_text()
+
+"
 
 [node name="main" type="Node2D"]
 
@@ -35,5 +61,29 @@ margin/bottom = 14.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+script/script = ExtResource( 3 )
+
+[node name="right_score" type="Label" parent="."]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -353.0
+margin/top = 0.0
+margin/right = -437.0
+margin/bottom = 31.0
+text = "right score: 0
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = SubResource( 1 )
+
+[connection signal="out_of_bounds" from="ball" to="left_score" method="_on_ball_out_of_bounds"]
+
+[connection signal="out_of_bounds" from="ball" to="right_score" method="_on_ball_out_of_bounds"]
 
 
