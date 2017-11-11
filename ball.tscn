@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://draw_ball.gd" type="Script" id=1]
+[ext_resource path="res://ball.gd" type="Script" id=1]
+[ext_resource path="res://draw_ball.gd" type="Script" id=2]
 
 [node name="ball" type="KinematicBody2D"]
 
@@ -8,6 +9,12 @@ input/pickable = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+script/script = ExtResource( 1 )
+ball_color = Color( 0, 0, 0, 1 )
+ball_size = 0.0
+ball_speed = Vector2( 0, 0 )
+right_paddle_name = ""
+left_paddle_name = ""
 
 [node name="draw_ball" type="Control" parent="."]
 
@@ -19,6 +26,6 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 
 
