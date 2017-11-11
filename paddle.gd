@@ -52,3 +52,12 @@ func _fixed_process(delta):
 	if( paddle_pos.y < 0 ):
 		paddle_pos.y = 0
 	move_to( paddle_pos )
+
+func pos_in_bounds( in_pos ):
+	print( "Checking pos %d is in bounds of %d and %d" % [in_pos, paddle_pos.y, paddle_pos.y+paddle_size.y] )
+	if( in_pos < paddle_pos.y+paddle_size.y and in_pos > paddle_pos.y ):
+		return true
+	return false
+
+func get_paddle_size():
+	return paddle_size
